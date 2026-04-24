@@ -9,11 +9,11 @@ public interface UsuarioService {
 
     Usuario crearUsuario(Usuario usuario);
 
+    List<Usuario> listarUsuarios();
+
     Optional<Usuario> obtenerPorId(Long id);
 
     Optional<Usuario> obtenerPorEmail(String email);
-
-    List<Usuario> listarUsuarios();
 
     void eliminarUsuario(Long id);
 }

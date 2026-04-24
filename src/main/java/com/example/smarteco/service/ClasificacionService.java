@@ -6,11 +6,9 @@ import java.util.List;
 
 public interface ClasificacionService {
 
-    Clasificacion registrarClasificacion(Long usuarioId, Long residuoId);
+    Clasificacion registrar(Clasificacion clasificacion);
 
-    Clasificacion validarClasificacion(Long clasificacionId, Long residuoCorrectoId);
+    Clasificacion validar(Long id);
 
-    List<Clasificacion> listarClasificaciones();
-
-    List<Clasificacion> listarPorEstado(String estado);
+    List<Clasificacion> listar();
 }

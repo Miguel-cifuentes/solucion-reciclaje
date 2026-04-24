@@ -1,7 +1,6 @@
 package com.example.smarteco.controller;
 
-import com.example.smarteco.dto.UsuarioRequest;
-import com.example.smarteco.dto.UsuarioResponse;
+import com.example.smarteco.entity.Usuario;
 import com.example.smarteco.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -16,14 +15,23 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
+    // 🔒 SOLO ADMIN
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
-    public List<UsuarioResponse> getAll() {
-        return usuarioService.getAll();
+    public List<Usuario> listar() {
+        return usuarioService.listarUsuarios();
     }
 
+    // 🔒 SOLO ADMIN (crear usuarios internos)
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
-    public UsuarioResponse create(@RequestBody UsuarioRequest request) {
-        return usuarioService.create(request);
+    public Usuario crear(@RequestBody Usuario usuario) {
+        return usuarioService.crearUsuario(usuario);
+    }
+
+    // 🌍 REGISTRO PÚBLICO (CIUDADANO)
+    @PostMapping("/register")
+    public Usuario register(@RequestBody Usuario usuario) {
+        return usuarioService.registrar(usuario);
     }
 }

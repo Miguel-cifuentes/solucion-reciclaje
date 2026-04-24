@@ -6,9 +6,7 @@ import java.util.List;
 
 public interface AlertaService {
 
-    Alerta crearAlerta(Alerta alerta);
+    List<Alerta> listar();
 
-    List<Alerta> listarAlertasActivas();
-
-    void desactivarAlerta(Long alertaId);
+    Alerta crear(Alerta alerta);
 }

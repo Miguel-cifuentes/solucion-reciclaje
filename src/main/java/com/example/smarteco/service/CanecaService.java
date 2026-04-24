@@ -3,15 +3,14 @@ package com.example.smarteco.service;
 import com.example.smarteco.entity.Caneca;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CanecaService {
 
-    Optional<Caneca> obtenerPorTipo(String tipo);
+    Caneca crear(Caneca caneca);
 
-    Caneca guardarCaneca(Caneca caneca);
+    Caneca obtenerPorId(Long id);
 
-    List<Caneca> listarCanecas();
+    List<Caneca> obtenerLlenas();
 
-    void actualizarCantidad(String tipo, int cantidad);
+    Caneca vaciar(Long id);
 }
