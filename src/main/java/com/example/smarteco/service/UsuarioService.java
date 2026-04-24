@@ -1,4 +1,4 @@
 package com.example.smarteco.service;
 
-public class hola {
+public class UsuarioService {
 }
